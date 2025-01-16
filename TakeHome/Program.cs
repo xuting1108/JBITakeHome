@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace TakeHome
@@ -8,9 +7,6 @@ namespace TakeHome
     {
         static async Task Main(string[] args)
         {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://100.29.16.196:8080");
-
             int n = 0;
             bool numberIsValid = false;
 
@@ -62,7 +58,6 @@ namespace TakeHome
             Console.WriteLine($"Validation MD5 response: {validateResponse}");
             Console.WriteLine($"Validation MD5 took: {(md5EndTime - md5StartTime).TotalSeconds:F2} seconds");
             Console.WriteLine($"Total took: {(totalEndTime - initStartTime).TotalSeconds:F2} seconds");
-
         }
     }
 }
