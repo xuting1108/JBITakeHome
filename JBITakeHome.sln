@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JBITakeHome", "JBITakeHome\JBITakeHome.csproj", "{B4D97DA9-69BA-6B05-1B5B-35FBCE2970BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4D97DA9-69BA-6B05-1B5B-35FBCE2970BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4D97DA9-69BA-6B05-1B5B-35FBCE2970BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4D97DA9-69BA-6B05-1B5B-35FBCE2970BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4D97DA9-69BA-6B05-1B5B-35FBCE2970BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF7870A2-5784-4502-93F8-2E3C2D3BA896}
+	EndGlobalSection
+EndGlobal
