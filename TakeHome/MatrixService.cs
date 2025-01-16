@@ -38,10 +38,10 @@ namespace TakeHome
             var matrix = new int[n][];
             var tasks = new Task[n];
 
-            for (int i = 0; i < n; i++)
+            Parallel.For(0, n, i =>
             {
                 tasks[i] = FetchMatrixRow(matrixName, i, matrix);
-            }
+            });
 
             await Task.WhenAll(tasks);
             return matrix;
@@ -72,7 +72,15 @@ namespace TakeHome
 
         public static int[][] MultiplyMatrices(int[][] matrixA, int[][] matrixB, int n)
         {
-            var transposedB = TransposeMatrix(matrixB, n);
+            var transposedB = new int[n][];
+            for (int i = 0; i < n; i++)
+            {
+                transposedB[i] = new int[n];
+                for (int j = 0; j < n; j++)
+                {
+                    transposedB[i][j] = matrixB[j][i];
+                }
+            }
 
             var resultMatrix = new int[n][];
             Parallel.For(0, n, i =>
@@ -80,28 +88,16 @@ namespace TakeHome
                 resultMatrix[i] = new int[n];
                 for (int j = 0; j < n; j++)
                 {
+                    int sum = 0;
                     for (int k = 0; k < n; k++)
                     {
-                        resultMatrix[i][j] += matrixA[i][k] * transposedB[j][k];
+                        sum += matrixA[i][k] * transposedB[j][k];
                     }
+                    resultMatrix[i][j] = sum;
                 }
             });
 
             return resultMatrix;
-        }
-
-        private static int[][] TransposeMatrix(int[][] matrix, int n)
-        {
-            var transposed = new int[n][];
-            for (int i = 0; i < n; i++)
-            {
-                transposed[i] = new int[n];
-                for (int j = 0; j < n; j++)
-                {
-                    transposed[i][j] = matrix[j][i];
-                }
-            }
-            return transposed;
         }
 
         public static string ComputeMD5Hash(int[][] matrix)
@@ -117,7 +113,7 @@ namespace TakeHome
         }
 
 
-        public static async Task<string> ValidateHash(string hash)
+        public static async ValueTask<string> ValidateHash(string hash)
         {
             var retryCount = 0;
             while (retryCount < maxRetry)
