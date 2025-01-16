@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JBITakeHome")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0358b4f735be7b796be21881f13ff96c52a2e3f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c6762b7d9f685451cfc8478284db12be0640d04")]
 [assembly: System.Reflection.AssemblyProductAttribute("JBITakeHome")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JBITakeHome")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
