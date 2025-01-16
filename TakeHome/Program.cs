@@ -49,18 +49,20 @@ namespace TakeHome
             Console.WriteLine("*** Validate MD5 hash ***");
             var md5StartTime = DateTime.Now;
             var base64Hash = MatrixService.ComputeMD5Hash(resultMatrix);
-            Console.WriteLine("##########" + base64Hash);
+            Console.WriteLine("### Send hash to validate: " + base64Hash);
             var validateResponse = await MatrixService.ValidateHash(base64Hash);
             var md5EndTime = DateTime.Now;
-            Console.WriteLine(validateResponse);
+            Console.WriteLine("MD5 response: " + validateResponse);
 
             var totalEndTime = DateTime.Now;
             Console.WriteLine($"\n*** Init Message Initialized matrices A & B with size {n} x {n} ***");
             Console.WriteLine($"Get A Rows took: {(fetchARowsEndTime - fetchARowsStartTime).TotalSeconds:F2} seconds");
             Console.WriteLine($"Get B Rows took: {(fetchBRowsEndTime - fetchBRowsStartTime).TotalSeconds:F2} seconds");
             Console.WriteLine($"Multiply took: {(multiplyEndTime - multiplyStartTime).TotalSeconds:F2} seconds");
-            Console.WriteLine($"Validate took: {(md5EndTime - md5StartTime).TotalSeconds:F2} seconds");
+            Console.WriteLine($"Validation MD5 response: {validateResponse}");
+            Console.WriteLine($"Validation MD5 took: {(md5EndTime - md5StartTime).TotalSeconds:F2} seconds");
             Console.WriteLine($"Total took: {(totalEndTime - initStartTime).TotalSeconds:F2} seconds");
+
         }
     }
 }

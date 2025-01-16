@@ -108,20 +108,14 @@ namespace TakeHome
         {
             using (var md5 = MD5.Create())
             {
-                var sb = new StringBuilder();
+                var flattenedMatrix = string.Join(",", matrix.SelectMany(row => row));
                 
-                for (int i = 0; i < matrix.Length; i++)
-                {
-                    for (int j = 0; j < matrix[i].Length; j++)
-                    {
-                        sb.Append(matrix[i][j]);
-                    }
-                }
-
-                var hashBytes = md5.ComputeHash(Encoding.UTF8.GetBytes(sb.ToString()));
+                var hashBytes = md5.ComputeHash(Encoding.UTF8.GetBytes(flattenedMatrix));
+                
                 return Convert.ToBase64String(hashBytes);
             }
         }
+
 
         public static async Task<string> ValidateHash(string hash)
         {
